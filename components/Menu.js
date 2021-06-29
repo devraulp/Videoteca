@@ -19,17 +19,18 @@ const styles = StyleSheet.create({
     menu: {
         flexDirection: "row",
         justifyContent: "space-around",
-        marginTop: 20,
+        paddingTop: 2,
+        marginHorizontal: 25
     },
     button: {
         backgroundColor: '#2196F3',
-        width: 150,
-        height: 100,
+        width: "49%",
+        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
+        borderRadius: 10
     },
     buttonText: {
-        paddingHorizontal: 20,
         fontSize: 25,
         color: "white",
         textAlign: 'center',
