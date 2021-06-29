@@ -6,6 +6,7 @@ const SearchBar = () => {
     const [textItem, setTextItem] = useState("")
     const [itemList, setItemList] = useState([])
     const [searchResult, setSearchResult] = useState(false)
+    const [movies, setMovies] = useState([])
   
     const onHandlerChangeItem = (t) => {
       setTextItem(t)
@@ -30,11 +31,7 @@ const SearchBar = () => {
       getItem();
       setTextItem("")
       Keyboard.dismiss()
-    }
-    const deleteItem = (id) => {
-      const items = itemList.filter((i) => i.imdbID !== id)
-      setItemList(items)
-    }
+    };
 
     return(
         <View>
@@ -54,6 +51,7 @@ const SearchBar = () => {
                     <View style={styles.item}>
                         <View style={styles.itemImage}>
                             <Image style={styles.image} source={{uri: item.Poster,}} />
+                            <Text>{item.Title}</Text>
                         </View>
                         <View style={styles.selectMenu}>
                             <TouchableHighlight style={styles.selectButton}>
@@ -124,6 +122,7 @@ const styles = StyleSheet.create ({
         borderRadius: 10,
         width: "50%",
         alignSelf: "center",
+        alignItems: "center"
     }, 
     selectMenu: {        
         flexDirection: "column", 
