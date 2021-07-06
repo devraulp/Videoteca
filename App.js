@@ -1,18 +1,18 @@
-import { Keyboard, TouchableWithoutFeedback, View } from 'react-native';
-
-import Header from "./components/Header";
-import Menu from "./components/Menu";
+import AppLoading from 'expo-app-loading';
+import BreadNavigator from './navigation/BreadNavigator';
 import React from 'react';
-import SearchBar from "./components/SearchBar";
+import { useFonts } from 'expo-font';
 
 export default function App() {
+  const [dataLoaded] = useFonts({
+    'open-sans-Condensed': require('./assets/fonts/OpenSansCondensed-Bold.ttf'),
+    'open-sans-Condensed-Light': require('./assets/fonts/OpenSansCondensed-Light.ttf'),
+    'open-sans-Condensed-Light-Italic': require('./assets/fonts/OpenSansCondensed-LightItalic.ttf'),
+  })
+
+  if (!dataLoaded) return <AppLoading />;
+  
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
-      <View>
-        <Header/>
-        <Menu/>
-        <SearchBar/>
-      </View>
-    </TouchableWithoutFeedback>
+    <BreadNavigator />
   );
 }

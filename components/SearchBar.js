@@ -1,4 +1,4 @@
-import { Button, Image, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
+import { Image, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableHighlight, View } from 'react-native';
 import React, {useState} from 'react';
 
 const SearchBar = () => {
@@ -6,7 +6,6 @@ const SearchBar = () => {
     const [textItem, setTextItem] = useState("")
     const [itemList, setItemList] = useState([])
     const [searchResult, setSearchResult] = useState(false)
-    const [movies, setMovies] = useState([])
   
     const onHandlerChangeItem = (t) => {
       setTextItem(t)
@@ -48,9 +47,9 @@ const SearchBar = () => {
             </View>  
             <ScrollView>
                 {itemList && searchResult == false ? (itemList.map(item =>
-                    <View style={styles.item}>
+                    <View style={styles.item} key={item.imdbID}>
                         <View style={styles.itemImage}>
-                            <Image style={styles.image} source={{uri: item.Poster,}} />
+                            <Image style={styles.image} source={{uri: item.Poster}} />
                             <Text>{item.Title}</Text>
                         </View>
                         <View style={styles.selectMenu}>

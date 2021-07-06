@@ -1,19 +1,21 @@
-import { Button, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 
 import React from 'react';
 
-export default function Menu() {
+const Menu = ({ navigation }) => {
   return (
     <View style={styles.menu}>
-        <TouchableHighlight style={styles.button}>
-            <Text style={styles.buttonText}> Mis Peliculas </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.button}>
-            <Text style={styles.buttonText}> Mis Series </Text>
-        </TouchableHighlight>
+        <Button title="Mis Peliculas"
+            onPress={() => navigation.navigate("MisPeliculas")}
+        />
+        <Button title="Mis Series"
+            onPress={() => navigation.navigate("MisSeries")}
+        />
     </View>
   );
 }
+
+export default Menu;
 
 const styles = StyleSheet.create({
     menu: {
@@ -21,18 +23,5 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         paddingTop: 2,
         marginHorizontal: 25
-    },
-    button: {
-        backgroundColor: '#2196F3',
-        width: "49%",
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 10
-    },
-    buttonText: {
-        fontSize: 25,
-        color: "white",
-        textAlign: 'center',
     }
 });
